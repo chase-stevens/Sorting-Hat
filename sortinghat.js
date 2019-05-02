@@ -10,52 +10,67 @@ client.on("ready", () => {
 
 client.on("message", (message) => {
     if (!message.content.startsWith(prefix)) return;
-    //if (message.author.id !== config.userID) return; //Drew only
-    if (message.author.bot) return;
+    if (message.author.id !== config.userID) return; //Drew only
+    // if (message.author.bot) return;
     if (message.channel.id === config.sortchan || message.channel.id === config.botchan){
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
       //  message.channel.send(command);
 
-      //if(message.member.roles.has(config.app)){
-
-      //}
-      //if(message.member.roles.has(config.ban)){
-      //  console.log('this dude a banan')
-      //}
-     // if(message.member.roles.has(config.car)){
-     //   console.log('this dude a carrot')
-     // }
-
-        if (command.startsWith('g')) {
+      // trying to be a Gryffindor
+      if (command.startsWith('g')) {
+          if(message.member.roles.has(config.sly)){
+            message.channel.send('It looks like you\'re already a Slytherin. Talk to a ' + config.headmaster + ' about this.');
+             return; }
+          if(message.member.roles.has(config.huf)){
+            message.channel.send('It looks like you\'re already a Hufflepuff. Talk to a ' + config.headmaster + ' about this.');
+             return; }
+          if(message.member.roles.has(config.rav)){
+            message.channel.send('It looks like you\'re already a Ravenclaw. Talk to a ' + config.headmaster + ' about this.');
+             return; }
           message.member.addRole(config.gry).catch(console.error);
-          message.member.removeRole(config.sly).catch(console.error);
-          message.member.removeRole(config.huf).catch(console.error);
-          message.member.removeRole(config.rav).catch(console.error);
           message.channel.send('Gryffindor it is!');
-        }
-        else if (command.startsWith('s')) {
-          message.member.removeRole(config.gry).catch(console.error);
+      }
+      else if (command.startsWith('s')) {
+          if(message.member.roles.has(config.gry)){
+            message.channel.send('It looks like you\'re already a Gryffindor. Talk to a ' + config.headmaster + ' about this.');
+             return; }
+          if(message.member.roles.has(config.huf)){
+            message.channel.send('It looks like you\'re already a Hufflepuff. Talk to a ' + config.headmaster + ' about this.');
+             return; }
+          if(message.member.roles.has(config.rav)){
+            message.channel.send('It looks like you\'re already a Ravenclaw. Talk to a ' + config.headmaster + ' about this.');
+             return; }
           message.member.addRole(config.sly).catch(console.error);
-          message.member.removeRole(config.huf).catch(console.error);
-          message.member.removeRole(config.rav).catch(console.error);
           message.channel.send('Slytherin it is!');
-        }
-        else if (command.startsWith('h')) {
-          message.member.removeRole(config.gry).catch(console.error);
-          message.member.removeRole(config.sly).catch(console.error);
+      }
+      else if (command.startsWith('h')) {
+          if(message.member.roles.has(config.gry)){
+            message.channel.send('It looks like you\'re already a Gryffindor. Talk to a ' + config.headmaster + ' about this.');
+             return; }
+          if(message.member.roles.has(config.sly)){
+            message.channel.send('It looks like you\'re already a Slytherin. Talk to a ' + config.headmaster + ' about this.');
+             return; }
+          if(message.member.roles.has(config.rav)){
+            message.channel.send('It looks like you\'re already a Ravenclaw. Talk to a ' + config.headmaster + ' about this.');
+             return; }
           message.member.addRole(config.huf).catch(console.error);
-          message.member.removeRole(config.rav).catch(console.error);
           message.channel.send('Hufflepuff it is!');
-        }
-        else if (command.startsWith('r')) {
-          message.member.removeRole(config.gry).catch(console.error);
-          message.member.removeRole(config.sly).catch(console.error);
-          message.member.removeRole(config.huf).catch(console.error);
+      }
+      else if (command.startsWith('r')) {
+        if(message.member.roles.has(config.gry)){
+          message.channel.send('It looks like you\'re already a Gryffindor. Talk to a ' + config.headmaster + ' about this.');
+           return; }
+        if(message.member.roles.has(config.sly)){
+          message.channel.send('It looks like you\'re already a Slytherin. Talk to a ' + config.headmaster + ' about this.');
+           return; }
+        if(message.member.roles.has(config.huf)){
+          message.channel.send('It looks like you\'re already a Hufflepuff. Talk to a ' + config.headmaster + ' about this.');
+           return; }
           message.member.addRole(config.rav).catch(console.error);
           message.channel.send('Ravenclaw it is!');
-        }
+      }   // now professions : 
         else if (command.startsWith('a')) {
           message.member.addRole(config.aur).catch(console.error);
           message.member.removeRole(config.pro).catch(console.error);
