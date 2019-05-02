@@ -10,7 +10,7 @@ client.on("ready", () => {
 
 client.on("message", (message) => {
     if (!message.content.startsWith(prefix)) return;
-    if (message.author.id !== config.userID) return; //Drew only
+    //if (message.author.id !== config.userID) return; //Drew only
     if (message.author.bot) return;
     if (message.channel.id === config.sortchan || message.channel.id === config.botchan){
 
@@ -18,15 +18,15 @@ client.on("message", (message) => {
     const command = args.shift().toLowerCase();
       //  message.channel.send(command);
 
-      if(message.member.roles.has(config.app)){
+      //if(message.member.roles.has(config.app)){
 
-      }
-      if(message.member.roles.has(config.ban)){
-        console.log('this dude a banan')
-      }
-      if(message.member.roles.has(config.car)){
-        console.log('this dude a carrot')
-      }
+      //}
+      //if(message.member.roles.has(config.ban)){
+      //  console.log('this dude a banan')
+      //}
+     // if(message.member.roles.has(config.car)){
+     //   console.log('this dude a carrot')
+     // }
 
         if (command.startsWith('g')) {
           message.member.addRole(config.gry).catch(console.error);
