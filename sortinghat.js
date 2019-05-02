@@ -10,7 +10,7 @@ client.on("ready", () => {
 
 client.on("message", (message) => {
     if (!message.content.startsWith(prefix)) return;
-    if (message.author.id !== config.userID) return; //Drew only
+    //if (message.author.id !== config.userID) return; //Drew only
     // if (message.author.bot) return;
     if (message.channel.id === config.sortchan || message.channel.id === config.botchan){
 
@@ -70,7 +70,7 @@ client.on("message", (message) => {
            return; }
           message.member.addRole(config.rav).catch(console.error);
           message.channel.send('Ravenclaw it is!');
-      }   // now professions : 
+      }   // now professions :
         else if (command.startsWith('a')) {
           message.member.addRole(config.aur).catch(console.error);
           message.member.removeRole(config.pro).catch(console.error);
